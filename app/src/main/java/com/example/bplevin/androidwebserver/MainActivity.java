@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        Log.d(TAG, "started");
+        Log.v(TAG, "started");
     }
 
     protected void onDestroy(){
