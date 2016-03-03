@@ -16,7 +16,7 @@ import fi.iki.elonen.NanoHTTPD;
 import fi.iki.elonen.util.ServerRunner;
 
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity,AbstractIOIOActivity {
     private static final String TAG = "WebServer";
     private MyHTTPD server;
 
@@ -49,10 +49,15 @@ public class MainActivity extends AppCompatActivity {
         Log.v(TAG, "started");
     }
 
-    protected void onDestroy(){
+    protected void onDestroy() {
         super.onDestroy();
-        if(server != null)
+        if (server != null)
             server.stop();
+    }
+
+    @Override
+    protected IOIOActivity.IOIOThread createIOIOThread() {
+        return new IOIOThread();
     }
 
     @Override
